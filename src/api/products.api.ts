@@ -16,6 +16,7 @@ function isProduct(value: unknown): value is Product {
     typeof product.title === 'string' &&
     typeof product.description === 'string' &&
     typeof product.category === 'string' &&
+    (product.brand === undefined || typeof product.brand === 'string') &&
     typeof product.price === 'number' &&
     typeof product.discountPercentage === 'number' &&
     typeof product.rating === 'number' &&
@@ -33,7 +34,13 @@ function isProductsResponse(value: unknown): value is ProductsResponse {
 
   const response = value as Record<string, unknown>
 
-  return Array.isArray(response.products) && response.products.every(isProduct)
+  return (
+    Array.isArray(response.products) &&
+    response.products.every(isProduct) &&
+    typeof response.total === 'number' &&
+    typeof response.skip === 'number' &&
+    typeof response.limit === 'number'
+  )
 }
 
 async function getJson(url: string, message: string): Promise<unknown> {
