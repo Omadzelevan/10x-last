@@ -1,6 +1,8 @@
 import type { Product, ProductsResponse } from '../types/product'
 
 const API_URL = 'https://dummyjson.com'
+const PRODUCTS_ERROR = 'Could not load products. Please try again.'
+const PRODUCT_ERROR = 'Could not load this product. Please try again.'
 
 function isProduct(value: unknown): value is Product {
   if (typeof value !== 'object' || value === null) {
@@ -34,37 +36,64 @@ function isProductsResponse(value: unknown): value is ProductsResponse {
   return Array.isArray(response.products) && response.products.every(isProduct)
 }
 
-export async function fetchProducts(): Promise<ProductsResponse> {
-  const response = await fetch(`${API_URL}/products?limit=12&skip=0`)
+async function getJson(url: string, message: string): Promise<unknown> {
+  let response: Response
 
-  if (!response.ok) {
-    throw new Error('Could not load products. Please try again.')
+  try {
+    response = await fetch(url)
+  } catch {
+    // fetch rejects on network failures; hide the browser-specific "Failed to fetch" text.
+    throw new Error(message)
   }
 
-  const data: unknown = await response.json()
+  if (!response.ok) {
+    throw new Error(message)
+  }
+
+  try {
+    return await response.json()
+  } catch {
+    throw new Error(message)
+  }
+}
+
+export async function fetchProducts(): Promise<ProductsResponse> {
+  const data = await getJson(`${API_URL}/products?limit=12&skip=0`, PRODUCTS_ERROR)
 
   if (!isProductsResponse(data)) {
-    throw new Error('The product data has an unexpected shape.')
+    throw new Error(PRODUCTS_ERROR)
   }
 
   return data
 }
 
 export async function fetchProduct(id: number): Promise<Product | null> {
-  const response = await fetch(`${API_URL}/products/${id}`)
+  let response: Response
+
+  try {
+    response = await fetch(`${API_URL}/products/${id}`)
+  } catch {
+    throw new Error(PRODUCT_ERROR)
+  }
 
   if (response.status === 404) {
     return null
   }
 
   if (!response.ok) {
-    throw new Error('Could not load this product. Please try again.')
+    throw new Error(PRODUCT_ERROR)
   }
 
-  const data: unknown = await response.json()
+  let data: unknown
+
+  try {
+    data = await response.json()
+  } catch {
+    throw new Error(PRODUCT_ERROR)
+  }
 
   if (!isProduct(data)) {
-    throw new Error('The product data has an unexpected shape.')
+    throw new Error(PRODUCT_ERROR)
   }
 
   return data
