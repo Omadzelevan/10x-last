@@ -101,6 +101,7 @@ mode. The cart **is** persisted and survives refresh and logout.
 - [REPORT.md](REPORT.md) — planned vs delivered, metrics, problems, AI usage
 - [DEBUG-LOG.md](DEBUG-LOG.md) — real bugs found while building
 - [COMPATIBILITY.md](COMPATIBILITY.md) — browser compatibility matrix
+- [DEFENSE.md](DEFENSE.md) — 20 likely defense questions with code references (Georgian)
 - [ai-log.md](ai-log.md) — short honest AI usage log
 
 ## Credits
