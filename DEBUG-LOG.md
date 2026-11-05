@@ -109,3 +109,31 @@ was removed because the initial state is already `'loading'`.
 A keyed component is a simple, explainable reset mechanism for route parameters.
 
 **Commit.** https://github.com/Omadzelevan/10x-last/commit/31276a9a3ccc6728fc3d3329affbbd7912263171
+
+## Bug 5 — Network failure leaked the browser's "Failed to fetch" text
+
+**Symptom.** With DummyJSON blocked (offline or a failed network), the catalog and product
+pages showed the raw browser message `Failed to fetch` instead of the friendly
+"Could not load products. Please try again." text.
+
+**Reproduction.**
+
+1. Open DevTools → Network and block `dummyjson.com` (or use Playwright `route.abort()`).
+2. Open `/` and `/products/1`.
+3. The error state rendered `Failed to fetch`.
+
+**Tool used.** Headless Chromium with Playwright request interception.
+
+**Root cause.** `fetch` rejects with a `TypeError` before an HTTP response exists. The page
+catch blocks displayed `error.message`, which is the browser-specific text. The friendly message
+was only used for non-`ok` HTTP responses.
+
+**Fix.** Added a `getJson` helper in `src/api/products.api.ts` that catches fetch and JSON-parse
+failures and throws `Could not load products. Please try again.`. `fetchProduct` applies the same
+rule while still returning `null` for HTTP 404. The regression test now passes and no crash
+occurs.
+
+**What I learned.** Error handling must cover the rejection path, not only bad HTTP statuses.
+A readable error message is a requirement, and the browser's message is not user-facing copy.
+
+**Commit.** https://github.com/Omadzelevan/10x-last/commit/073530bc8dfa7c7b38470125c97a26abc49ea4de

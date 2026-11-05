@@ -36,11 +36,12 @@ routes, `@theme`, generics, OOP models. CORE was completed first, as required.
 
 | Metric | Value |
 |---|---|
-| `npm run build` output JS | 290.66 kB (89.28 kB gzip) |
+| `npm run build` output JS | 290.75 kB (89.31 kB gzip) |
 | `npm run build` output CSS | 21.56 kB (5.07 kB gzip) |
 | TypeScript / Oxlint errors | 0 / 0 |
 | Automated CORE browser checks | 33 / 33 passed (Chromium headless) |
 | Additional edge-case browser checks | 18 / 18 passed (Chromium headless) |
+| Targeted failure/responsive checks | 7 / 7 passed (Chromium headless) |
 | Lighthouse mobile score | TODO(student): capture on the deployed URL |
 | Commit count | TODO(student): `git rev-list --count HEAD` |
 | Issues / pull requests | TODO(student): create them in the GitHub repository |
@@ -59,6 +60,9 @@ They will change slightly if the code changes.
   the repository): catalog → product → cart → guest checkout → login → checkout → confirmation,
   badge updates, persistence, logout, malformed `localStorage`, invalid product ids, unknown
   routes, 375px overflow, mobile menu and stock limits.
+- Targeted failure checks: blocking `dummyjson.com` shows a readable error (not `Failed to
+  fetch`), the discounted price matches the formula, and the checkout form has no horizontal
+  overflow at 375px with 44px inputs.
 - Error Boundary fallback: a temporary `throw` in `CatalogPage` showed
   "Something went wrong." and the "Reload" button; the throw was removed afterwards.
 
