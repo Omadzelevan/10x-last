@@ -27,7 +27,7 @@ after confirming both behaviours. `npm run build` still uses `tsc -b`.
 **What I learned.** A green command is not proof. Always inject a deliberate error and confirm
 that the gate fails; otherwise the gate may be checking nothing.
 
-**Commit.** TODO(student): commit link
+**Commit.** https://github.com/Omadzelevan/10x-last/commit/b923747f02ae03eb766e8145b62eeff26f236aca
 
 ## Bug 2 — Login sent the user to the catalog instead of back to checkout
 
@@ -56,7 +56,7 @@ and the checkout form is visible.
 **What I learned.** Redirect guards that depend on state changed by the same submit handler are
 a race. Browser-level tests catch this; a manual click-through may hide it depending on timing.
 
-**Commit.** TODO(student): commit link
+**Commit.** https://github.com/Omadzelevan/10x-last/commit/ec9889ac511e55069fe978ed61cc118812ccb3f3
 
 ## Bug 3 — `ProductPage` failed typecheck: `'product' is possibly 'null'`
 
@@ -83,7 +83,7 @@ the handler. The page was later split into a parent route component and a keyed
 explicit non-null binding. A keyed child component is a cleaner way to reset page state when a
 route parameter changes.
 
-**Commit.** TODO(student): commit link
+**Commit.** https://github.com/Omadzelevan/10x-last/commit/31276a9a3ccc6728fc3d3329affbbd7912263171
 
 ## Bug 4 — Synchronous `setState` inside the product effect
 
@@ -108,4 +108,4 @@ was removed because the initial state is already `'loading'`.
 **What I learned.** Effects should synchronize with external systems, not derive render state.
 A keyed component is a simple, explainable reset mechanism for route parameters.
 
-**Commit.** TODO(student): commit link
+**Commit.** https://github.com/Omadzelevan/10x-last/commit/31276a9a3ccc6728fc3d3329affbbd7912263171
