@@ -25,7 +25,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   render(): ReactNode {
     if (this.state.hasError) {
       return (
-        <div className="mx-auto flex w-full max-w-3xl flex-col items-start gap-4 px-4 py-16">
+        <main className="mx-auto flex w-full max-w-3xl flex-col items-start gap-4 px-4 py-16">
           <h1 className="text-2xl font-bold text-slate-900">Something went wrong.</h1>
           <p className="text-slate-700">
             The page could not be displayed. Reload to try again.
@@ -39,7 +39,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
               <p className="mt-2 break-words">{this.state.errorMessage}</p>
             </details>
           ) : null}
-        </div>
+        </main>
       )
     }
 
