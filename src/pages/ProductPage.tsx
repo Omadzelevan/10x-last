@@ -90,7 +90,7 @@ function ProductDetails({ productId }: ProductDetailsProps) {
         <ErrorMessage message={errorMessage} />
         <Link
           to="/"
-          className="mt-4 inline-block text-sm font-semibold text-slate-900 underline underline-offset-2"
+          className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-slate-900 underline underline-offset-2"
         >
           ← Back to catalog
         </Link>
@@ -119,7 +119,7 @@ function ProductDetails({ productId }: ProductDetailsProps) {
     <PageContainer>
       <Link
         to="/"
-        className="inline-block text-sm font-semibold text-slate-900 underline underline-offset-2 hover:text-slate-700"
+        className="inline-flex min-h-11 items-center text-sm font-semibold text-slate-900 underline underline-offset-2 hover:text-slate-700"
       >
         ← Back to catalog
       </Link>

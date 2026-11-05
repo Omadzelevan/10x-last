@@ -11,7 +11,7 @@ export function Footer() {
             href="https://dummyjson.com"
             target="_blank"
             rel="noreferrer"
-            className="font-medium text-slate-900 underline underline-offset-2 hover:text-slate-700"
+            className="inline-flex min-h-11 items-center font-medium text-slate-900 underline underline-offset-2 hover:text-slate-700"
           >
             DummyJSON
           </a>

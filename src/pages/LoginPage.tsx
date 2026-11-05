@@ -104,7 +104,7 @@ export function LoginPage() {
 
         <Link
           to="/"
-          className="mt-6 inline-block text-sm font-semibold text-slate-900 underline underline-offset-2 hover:text-slate-700"
+          className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-slate-900 underline underline-offset-2 hover:text-slate-700"
         >
           ← Back to catalog
         </Link>

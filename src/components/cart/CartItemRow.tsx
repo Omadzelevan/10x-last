@@ -27,7 +27,7 @@ export function CartItemRow({ item, onQuantityChange, onRemove }: CartItemRowPro
       <div className="min-w-0 flex-1">
         <Link
           to={`/products/${item.productId}`}
-          className="font-semibold text-slate-900 underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
+          className="inline-flex min-h-11 items-center font-semibold text-slate-900 underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
         >
           {item.title}
         </Link>

@@ -30,7 +30,7 @@ export function Header() {
         <Link
           to="/"
           onClick={closeMenu}
-          className="rounded-lg px-1 py-2 text-lg font-bold tracking-tight text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
+          className="inline-flex min-h-11 items-center rounded-lg px-1 py-2 text-lg font-bold tracking-tight text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
         >
           10X Shop
         </Link>
@@ -66,18 +66,13 @@ export function Header() {
           </NavLink>
 
           {user ? (
-            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-2">
-              <span className="flex min-h-11 items-center px-3 text-sm text-slate-600">
-                {user.username}
-              </span>
-              <button
-                type="button"
-                onClick={handleLogout}
-                className="flex min-h-11 items-center rounded-lg px-3 text-left text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
-              >
-                Log out
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="flex min-h-11 items-center rounded-lg px-3 text-left text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
+            >
+              Log out
+            </button>
           ) : (
             <NavLink to="/login" className={navLinkClass} onClick={closeMenu}>
               Log in
