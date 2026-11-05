@@ -1,7 +1,7 @@
 # DEBUG-LOG — real bugs found while building 10X Shop
 
 All entries below were found in this repository during development. No dates or bugs were
-invented. Add the real commit link to each `TODO(student)` after pushing.
+invented. Each entry links to the real commit that contains its fix.
 
 ## Bug 1 — `npm run typecheck` checked nothing
 

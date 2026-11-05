@@ -27,15 +27,15 @@ no real authentication, payment or `POST` request.
 
 ## 4. WBS epics and estimates
 
-| Epic | Tasks | Estimate |
-|---|---|---|
-| Auth | AuthContext, Login form + validation, ProtectedRoute | 6 h |
-| Catalog | Product types, API functions, Catalog, ProductCard/Grid, loading/error/empty | 8 h |
-| Product | Product details, gallery, quantity stepper, add to cart feedback | 6 h |
-| Cart | CartContext + persistence, Cart page, quantity/remove/totals | 7 h |
-| Checkout | Guard, controlled form + validation, order summary, confirmation | 6 h |
-| Quality | Tailwind responsive pass, a11y, Error Boundary, debugging, typecheck/lint/build | 8 h |
-| Docs | PLAN, README, REPORT, DEBUG-LOG, COMPATIBILITY, deploy config | 5 h |
+| Epic | Tasks | Estimate | Definition of Done |
+|---|---|---|---|
+| Auth | AuthContext, Login form + validation, ProtectedRoute | 6 h | Guest is redirected to `/login` with `from`; valid login returns to the protected page; logout returns to guest state and keeps the cart |
+| Catalog | Product types, API functions, Catalog, ProductCard/Grid, loading/error/empty | 8 h | `/products?limit=12&skip=0` renders 12 typed cards with stable keys; loading, error and empty states are visible; add-to-cart updates the badge |
+| Product | Product details, gallery, quantity stepper, add to cart feedback | 6 h | `/products/:id` loads and refreshes on id change; gallery and stepper work; stock limits and inline feedback are enforced; invalid ids show NotFound |
+| Cart | CartContext + persistence, Cart page, quantity/remove/totals | 7 h | Quantity, remove and clear update totals and the badge immediately; the cart survives refresh; malformed storage is ignored |
+| Checkout | Guard, controlled form + validation, order summary, confirmation | 6 h | Four exact fields validate; placing an order shows the confirmation without triggering the empty-cart redirect; the cart is cleared |
+| Quality | Tailwind responsive pass, a11y, Error Boundary, debugging, typecheck/lint/build | 8 h | 375px has no overflow and 44px tap targets; focus/hover/disabled states work; Error Boundary fallback is demonstrated; all commands pass |
+| Docs | PLAN, README, REPORT, DEBUG-LOG, COMPATIBILITY, deploy config | 5 h | Every document exists with real data; deploy config is present; `TODO(student)` marks everything the student must verify |
 
 ## 5. Risks and mitigations
 

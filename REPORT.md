@@ -36,12 +36,13 @@ routes, `@theme`, generics, OOP models. CORE was completed first, as required.
 
 | Metric | Value |
 |---|---|
-| `npm run build` output JS | 290.75 kB (89.31 kB gzip) |
-| `npm run build` output CSS | 21.56 kB (5.07 kB gzip) |
+| `npm run build` output JS | 290.83 kB (89.31 kB gzip) |
+| `npm run build` output CSS | 21.55 kB (5.07 kB gzip) |
 | TypeScript / Oxlint errors | 0 / 0 |
 | Automated CORE browser checks | 33 / 33 passed (Chromium headless) |
 | Additional edge-case browser checks | 18 / 18 passed (Chromium headless) |
 | Targeted failure/responsive checks | 7 / 7 passed (Chromium headless) |
+| Requirement audit (header, grid, focus, hover, zero stock, totals) | 23 / 23 passed (Chromium headless) |
 | Lighthouse mobile score | TODO(student): capture on the deployed URL |
 | Commit count | TODO(student): `git rev-list --count HEAD` |
 | Issues / pull requests | TODO(student): create them in the GitHub repository |
@@ -108,3 +109,16 @@ workarounds: the redirect race and the effect warning were fixed in the code, no
 Every command in the verification section was actually run in this repository, and no Lighthouse
 score, commit hash, browser result or hour count was invented. The student still has to read,
 understand and defend every file.
+
+## 7. Student TODO list (exact order)
+
+1. **Done:** public repository `Omadzelevan/10x-last` exists and the code is pushed.
+2. Deploy to Vercel (settings in `README.md`).
+3. Open `/products/5` directly on the live URL and refresh it; SPA rewrite must work.
+4. Put the live URL into `README.md` (replace the `TODO(student): URL` line).
+5. Capture Lighthouse mobile before/after on the live URL (`docs/lighthouse/README.md`).
+6. Fill `COMPATIBILITY.md` with real Chrome and Firefox results (desktop + mobile emulation).
+7. Replace the remaining `TODO(student)` markers: Lighthouse scores and commit/issues counts.
+8. Create a few real GitHub Issues/PRs if the course requires them.
+9. Submit the repository link before **6 Nov 2026, 23:59 (Georgia time)**.
+

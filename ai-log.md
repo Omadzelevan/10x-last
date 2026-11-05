@@ -32,5 +32,5 @@ Honest, short notes about the main AI-assisted steps. No timestamps or scores we
 
 - README, PLAN, REPORT, DEBUG-LOG and COMPATIBILITY were drafted with AI assistance from the real
   work performed in this session.
-- Items that require the student (Lighthouse, Firefox checks, deployed URL, commit links, hours)
-  were left as `TODO(student)` on purpose.
+- Items that require the student (Lighthouse, Firefox checks, deployed URL, commit/issue counts,
+  actual study hours) were left as `TODO(student)` on purpose.
